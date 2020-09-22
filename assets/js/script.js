@@ -7,6 +7,7 @@ $(document).ready(function () {
     var cityInput = $("#weather-input").val().trim();
     console.log(cityInput);
     currentWeather(cityInput);
+    forecast(cityInput);
   });
 
   function currentWeather(city) {
@@ -20,15 +21,15 @@ $(document).ready(function () {
       console.log(data);
     });
   }
-    function forecast() {
-      $.ajax({
-        method: "GET",
-        url:
-          "https://api.openweathermap.org/data/2.5/forecast?q=" +
-          city +
-          "&appid=96c11cefb1ce135a21376c8104974b72&units=imperial",
-      }).then(function (data) {
-        console.log(data);
-      });
-    }
+  function forecast(city) {
+    $.ajax({
+      method: "GET",
+      url:
+        "https://api.openweathermap.org/data/2.5/forecast?q=" +
+        city +
+        "&appid=96c11cefb1ce135a21376c8104974b72&units=imperial",
+    }).then(function (data) {
+      console.log(data);
+    });
+  }
 });
